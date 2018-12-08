@@ -35,10 +35,15 @@ with open(csvpath, newline="") as csvfile:
     #as it represents the number of months in this case
     data = list(csvreader)
     months_count = len(data) - 1
-print("Financial Analysis:")
-print("------------------------------")
-print(f'Total Months: {months_count}')
+# print("Financial Analysis:")
+# print("------------------------------")
+# print(f'Total Months: {months_count}')
 
+    # total = 0.0
+    # for row in data:
+        #total  = row[1]
+column = 1
+print (sum(row[column] for row in data))
 
 # rows = csvreader.DictReader(csvfile)
 # print (sum(float(csvfile['Profit/Losses']) for csvfile in rows) 
@@ -49,5 +54,10 @@ print(f'Total Months: {months_count}')
 #         #total = total+number
 #         total += number
 #     return total / length
+
+    # for row in csvreader:
+    #     print(row)
+    #     if float(row[7]) >= 5:
+    #         print(row)
     
     
