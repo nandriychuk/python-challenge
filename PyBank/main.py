@@ -43,11 +43,15 @@ with open(csvpath, newline="") as csvfile:
 # print("------------------------------")
 # print(f'Total Months: {months_count}')
 
-#column_sum = []
+profit_loss_column = []
+#fail - ask why
+# profit_loss_column = [profit_loss_column for row in data]
+# print(profit_loss_column)
 #Iterating thoroug the "Profit/Losses" column to sum all the values
 total = 0
 for row in data:
-    #column_sum.append(row[1])
+    profit_loss_column.append(row[1])
+
 
     #for number in column_sum: ----I wa trying to do the nested for loop here since I thought 
     #that I need to iterate thtough eact munber in the column sum, since I thought that 
@@ -55,7 +59,37 @@ for row in data:
     total = total + int(row[1])
 #print(f'Total: ${total}')
 
-    print(row[0])
+def average_change():
+    current_index = 0
+    next_index = 1
+    average_change = []
+    for change_value in profit_loss_column:
+        change = change_value[next_index] - change_value[current_index]
+        average_change.append(change_value)
+        current_index  =+ 1
+        next_index =+ 1
+    return average_change
+    
+
+
+
+
+
+
+# for x in profit_loss_column:
+#     profit_change = [x[i] - x[i+1] for x in profit_loss_column]
+# print(profit_change)
+
+
+
+
+
+
+    #print(row[0])
+# you'll need that for task 4 and 5
+# max_value = max(profit_loss_column)
+# min_value = min(profit_loss_column)
+# print(max_value, min_value)
 
 #type(row))
 # column_sum  = [row.sum() for row in data]
