@@ -32,7 +32,7 @@ with open(csvpath, newline="") as csvfile:
     #print(f"CSV Header: {csv_header}")
     #print(csvreader)
 
-    # counting number of rows in the dataset (minus the header)
+    # counting number of rows in the dataset 
     # as it represents the number of months in this case
     data = list(csvreader)
     months_count = len(data)
@@ -43,21 +43,16 @@ print(f'Total Months: {months_count}')
 
 profit_loss_column = []
 months_column = []
-#fail - ask why
-# profit_loss_column = [profit_loss_column for row in data]
-# print(profit_loss_column)
+
 # Iterating thoroug the "Profit/Losses" column to sum all the values
 total = 0
 for row in data:
     profit_loss_column.append(row[1])
     months_column.append(row[0])
 
-    #for number in column_sum: ----I wa trying to do the nested for loop here since I thought 
-    #that I need to iterate thtough eact munber in the column sum, since I thought that 
-    # we ned to put it one list and then iterate through it, but I was able to iterate throug the row
+    #counting the total sum of profit/loses over the entire period
     total = total + int(row[1])
 print(f'Total: ${total}')
-# print(months_column)
 
 def average_change():
     current_index = 0
@@ -80,21 +75,22 @@ def average_change():
         max_value = max(months_change_list)
         min_value = min(months_change_list)
 
-        # Looking up the max and min value index in order to find out the corresponding
-        # month value in the month_column.  
-
+        # Looking up the max and min value index in the list 
         index_max_value = months_change_list.index(max_value)
         index_min_value = months_change_list.index(min_value)
+
+        #matching the max and min index value wit the corresponding
+        # month value in the month_column.  
         increase_month = months_column[index_max_value + 1]
         decrease_month = months_column[index_min_value + 1] 
     return print(f'Average Change: {average_change}\nGreatest Increase in Profits: {increase_month} (${max_value})\nGreatest Decrease in Profits: {decrease_month} (${min_value}) ')
 average_change()
 
-#print(f'Total Months: {months_count}')
+#ask about the strange values in the final .txt
+with open("budget_data_analysis.txt", 'w') as text:
+    text.write((f'Average Change: {average_change}'))
 
-#Average  Change: $-2315.12
-#   Greatest Increase in Profits: Feb-2012 ($1926159)
-#   Greatest Decrease in Profits: Sep-2013 ($-2196167)
+
 
 
 #for value in average_change:
@@ -107,11 +103,6 @@ average_change()
 # for x in profit_loss_column:
 #     profit_change = [x[i] - x[i+1] for x in profit_loss_column]
 # print(profit_change)
-
-
-
-
-
 
     #print(row[0])
 #
@@ -136,6 +127,4 @@ average_change()
     # for row in csvreader:
     #     print(row)
     #     if float(row[7]) >= 5:
-    #         print(row)
-    
-    
+    #         print(row) 

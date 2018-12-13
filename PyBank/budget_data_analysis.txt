@@ -1,0 +1,1 @@
+Average Change: <function average_change at 0x000001D55D1BB048>
