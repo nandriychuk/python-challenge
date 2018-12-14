@@ -90,6 +90,7 @@ Total Votes: {total_votes}
 Winner: {winning_candidate}
 ''')
 
+# Exporting to a .txt file
 with open("election_data.txt", 'w') as text:
     text.write(f'''
 Election Results

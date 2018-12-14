@@ -94,7 +94,7 @@ Greatest Increase in Profits: {increase_month} (${max_value})
 Greatest Decrease in Profits: {decrease_month} (${min_value})
 ''')
 
-#ask about the strange values in the final .txt
+# Exporting to a .txt file
 with open("budget_data_analysis.txt", 'w') as text:
     text.write("Financial Analysis:\n")
     text.write("---------------------------------------\n")
