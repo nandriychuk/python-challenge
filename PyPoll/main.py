@@ -45,40 +45,37 @@ with open(csvpath, newline="") as csvfile:
     data = list(csvreader)
     total_votes = len(data)
 
-    #Create empty arrays for the new data
+    # Create empty lists to stare new data
     candidates_row = []
     candidates = []
     vote_percent = []
     candidate_votes = []
 
-#loop through data and append the candidates row to use later
+# Loop through data and append the candidates row to use later
 for row in data:
     candidates_row.append(row[2])
 
-#loop through the data to find the unique candidates and do the calculations
+# Loop through the data to find the unique candidates and do the calculations
 for value in set(candidates_row):
-    #identifying unique candidates
+    # Create a list with unique candidates
     candidates.append(value)
-    # print(value)
 
-# print(candidates)
-    # Counting total value of votes per candidate
+    # Count total value of votes per candidate
     total_per_candidate = candidates_row.count(value)
+    # Create a list with total value of votes per candidate
     candidate_votes.append(total_per_candidate)
-    # print(total_per_candidate)
 
-    #     # percent of total votes per candidate
+    # Calculate the percent of total votes per candidate
     percent = round((total_per_candidate /total_votes)*100,1)
-    #print(percent)
+    # Create a list with percent values of total votes per candidate
     vote_percent.append(percent)
-# print(vote_percent)
-        
+
+# Find the max count value in candidate_votes     
 winning_count = max(candidate_votes)
+# Find the index of the winning_count in the list
 winning_index = candidate_votes.index(winning_count)
+# Use the index to reference the candidate in candidates list
 winning_candidate = candidates[winning_index]
-# print(winning_count)
-# print(candidate_votes)
-# print(vote_percent[0])
 
 print(f'''
 Election Results
